@@ -9,7 +9,7 @@ const ProductRatings = ({avgRating, ratings}) => {
 
   return (
     <div className="flex">
-      
+
       {Array.from({ length: filledStars }, (_, i) => (
         <StarIcon
           key={i}

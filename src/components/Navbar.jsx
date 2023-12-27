@@ -1,5 +1,7 @@
 import { Search } from './';
 import {MapPinIcon, ShoppingCartIcon, Bars3Icon} from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom';
+
 
 
 const Navbar = () => {
@@ -8,15 +10,18 @@ const Navbar = () => {
       <div className="flex bg-amazon text-white h-[60px]">
         {/* Left */}
         <div className="flex items-center m-4">
-          <img
-            className="h-[35px] w-[100px] m-2"
-            src="../images/amazon.png"
-            alt=""
-          />
+          <Link to={"/"}>
+            <img
+              className="h-[35px] w-[100px] m-2"
+              src="../images/amazon.png"
+              alt=""
+            />
+          </Link>
+
           <div className="px-4">
             <div className="text-xs xl:text-sm">Deliver to</div>
             <div className="text-sm xl:text-base font-bold -ml-[19px]">
-              <span className='flex items-start'>
+              <span className="flex items-start">
                 <MapPinIcon className="h-[20px]" />
                 Zimbabwe
               </span>
@@ -43,16 +48,18 @@ const Navbar = () => {
             <div className="text-sm xl:text-base font-bold">& Orders</div>
           </div>
 
-          <div className="flex px-3">
-            <ShoppingCartIcon className="h-[48px]" />
-            <div className="mt-7 text-xs xl:text-sm font-bold">Cart</div>
-          </div>
+          <Link to={'/checkout'}>
+            <div className="flex px-3">
+              <ShoppingCartIcon className="h-[48px]" />
+              <div className="mt-7 text-xs xl:text-sm font-bold">Cart</div>
+            </div>
+          </Link>
         </div>
       </div>
 
       <div className="flex items-center bg-amazon-light_blue text-white space-x-3 text-xs xl:text-sm p-2 pl-6">
         <div className="flex items-center">
-          <Bars3Icon className='h-[25px] mr-1'/>
+          <Bars3Icon className="h-[25px] mr-1" />
           <h1 className="font-bold">All</h1>
         </div>
         <div>Today&lsquo;s Deals</div>
