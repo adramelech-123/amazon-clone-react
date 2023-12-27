@@ -8,7 +8,7 @@ const ProductDetails = ({product, ratings}) => {
         {product.title}
       </div>
       <div className="text-sm xl:text-base mb-1">
-        by <span className="text-blue-500">{product.brand}</span> (Author)
+        by <span className="text-blue-500">{product.brand}</span>
       </div>
       {ratings && (
         <div className="text-sm xl:text-base mb-1">
