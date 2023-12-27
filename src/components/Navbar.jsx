@@ -1,5 +1,6 @@
 import { Search } from './';
-import {ShoppingCartIcon} from '@heroicons/react/24/outline'
+import {MapPinIcon, ShoppingCartIcon, Bars3Icon} from '@heroicons/react/24/outline'
+
 
 const Navbar = () => {
   return (
@@ -14,7 +15,12 @@ const Navbar = () => {
           />
           <div className="px-4">
             <div className="text-xs xl:text-sm">Deliver to</div>
-            <div className="text-sm xl:text-base font-bold">Zimbabwe</div>
+            <div className="text-sm xl:text-base font-bold -ml-[19px]">
+              <span className='flex items-start'>
+                <MapPinIcon className="h-[20px]" />
+                Zimbabwe
+              </span>
+            </div>
           </div>
         </div>
 
@@ -44,9 +50,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex bg-amazon-light_blue text-white space-x-3 text-xs xl:text-sm p-2 pl-6">
-        <div className='flex'>
-            <h1 className='font-bold'>All</h1>
+      <div className="flex items-center bg-amazon-light_blue text-white space-x-3 text-xs xl:text-sm p-2 pl-6">
+        <div className="flex items-center">
+          <Bars3Icon className='h-[25px] mr-1'/>
+          <h1 className="font-bold">All</h1>
         </div>
         <div>Today&lsquo;s Deals</div>
         <div>Registry</div>
