@@ -36,11 +36,11 @@ const Search = () => {
   }, []);
   return (
     <div className="w-[100%]">
-      <div className="flex items-center h-10 bg-amazon-yellow">
+      <div className="flex items-center h-10 bg-amazon-yellow rounded">
         <select
           name=""
           id=""
-          className="p-2 bg-gray-300 text-black border text-xs xl:text-sm"
+          className="p-2 bg-gray-200 w-16 text-gray-600 hover:border-2 hover:border-yellow-500 hover:text-black border text-xs xl:text-sm rounded"
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="">All</option>
