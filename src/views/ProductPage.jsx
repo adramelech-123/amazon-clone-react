@@ -1,18 +1,29 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { callAPI } from "../utils/CallApi";
 import { ProductDetails } from "../components";
 import { US_CURRENCY } from "../utils/constants";
+import { addToCart } from "../redux/cartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1)
+  const dispatch = useDispatch()
 
   const getProduct = () => {
     callAPI(`data/products.json`).then((productResults) => {
       setProduct(productResults[id]);
     });
   };
+
+
+   const handleAddToCart = () => {
+     // Create a copy of the product object and update its quantity property
+     const productWithQuantity = { ...product, quantity };
+     dispatch(addToCart(productWithQuantity));
+   };
 
   useEffect(() => {
     getProduct();
@@ -62,18 +73,22 @@ const ProductPage = () => {
               <div className="text-base xl:text-lg mt-1">
                 Quantity:
                 <select
-                  name=""
-                  id=""
+                  onChange={(e) => setQuantity(e.target.value)}
                   className="ml-2 p-2 bg-white border rounded-md focus:border-indigo-600"
                 >
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
                 </select>
               </div>
-              <button className="bg-yellow-400 w-full p-3 font-bold text-xs xl:text-sm rounded hover:bg-yellow-500 mt-3">
-                Add To Cart
-              </button>
+              <Link to={"/checkout"}>
+                <button
+                  onClick={handleAddToCart}
+                  className="btn"
+                >
+                  Add To Cart
+                </button>
+              </Link>
             </div>
           </div>
         </div>
